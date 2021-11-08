@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="turntabl.RegisterTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-11-06T19:57:20" hostname="DESKTOP-R6C4GLD" time="0.018">
+  <properties/>
+  <testcase name="getGoldClients()" classname="turntabl.RegisterTest" time="0.018"/>
+  <system-out><![CDATA[[CorporateClient{AccountManager='MAnagerPeter'}, CorporateClient{AccountManager='MAnagerkofi'}, CorporateClient{AccountManager='MAnagerturkson'}, PrivateClient{}, PrivateClient{}]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
