@@ -2,24 +2,28 @@ package turntabl;
 
 public class CorporateClient extends Client{
 
-    public String AccountManagerName;
-    public String CorporateName;
+    Accountmanager AccountManagerName;
+    public String CorporateClientName;
 
-    public CorporateClient( int clientID, ServiceLevel serviceLevel,String clientName,String accountmanagerName) {
+    public CorporateClient( int clientID, ServiceLevel serviceLevel,String clientName,Accountmanager accountmanagerName) {
         super( clientID, serviceLevel);
          AccountManagerName = accountmanagerName ;
+         CorporateClientName =clientName;
     }
 
-    @Override
+
     public String getClientName() {
-        return AccountManagerName;
+        return AccountManagerName.clientName;
     }
 
 
     @Override
     public String toString() {
         return "CorporateClient{" +
-                "AccountManager='" + AccountManagerName + '\'' +
+                ", ClientID=" + ClientID +
+                ", ServiceLevel=" + ServiceLevel +
+                ", AccountManagerName=" + AccountManagerName +
+                ", CorporateClientName='" + CorporateClientName + '\'' +
                 '}';
     }
 }

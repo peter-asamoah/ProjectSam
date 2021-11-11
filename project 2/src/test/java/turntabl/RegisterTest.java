@@ -1,31 +1,42 @@
 package turntabl;
 
+import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class RegisterTest {
 
+        Accountmanager kwame = new Accountmanager("Kwame");
+
+
+        List<Client> ClientRegister = List.of(
+                new CorporateClient(5415, ServiceLevel.Gold, "PeteC", kwame),
+                new CorporateClient(4415, ServiceLevel.Platinum, "kofiC", kwame),
+                new CorporateClient(5465, ServiceLevel.Gold, "turksonC", kwame),
+                new PrivateClient(5425, ServiceLevel.Premium, "Peter"),
+                new PrivateClient(5415, ServiceLevel.Gold, "kofi")
+        );
+
+        Register turntable = new Register(ClientRegister);
+
     @Test
     void getGoldClients() {
+        System.out.println(turntable.getGoldClients());
 
-        Register turntable = new Register();
-        Client PeteC = new CorporateClient(5415,ServiceLevel.Gold,"PeteC", "MAnagerPeter");
-        Client kofiC = new CorporateClient(5415,ServiceLevel.Platinum,"kofiC", "MAnagerkofi");
-        Client turksonC = new CorporateClient(5415,ServiceLevel.Gold,"turksonC", "MAnagerturkson");
-        Client Peter = new PrivateClient(5415,ServiceLevel.Premium,"Peter" );
-        Client kofi = new PrivateClient(5415,ServiceLevel.Gold,"kofi" );
+    }
 
+    @Test
+    void levelCount(){
+       turntable.getCount();
 
-        turntable.add( PeteC);
-        turntable.add( kofiC);
-        turntable.add( turksonC);
-        turntable.add( Peter);
-        turntable.add( kofi);
-
-//        turntable.getGoldClients();
-        turntable.allClients();
-
+    }
+    @Test
+    void getbyID(){
+        turntable.getbyID(4415);
 
     }
 }

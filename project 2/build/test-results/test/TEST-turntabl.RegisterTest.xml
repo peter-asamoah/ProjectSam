@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="turntabl.RegisterTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-11-06T19:57:20" hostname="DESKTOP-R6C4GLD" time="0.018">
+<testsuite name="turntabl.RegisterTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-11-11T18:49:24" hostname="DESKTOP-R6C4GLD" time="0.04">
   <properties/>
-  <testcase name="getGoldClients()" classname="turntabl.RegisterTest" time="0.018"/>
-  <system-out><![CDATA[[CorporateClient{AccountManager='MAnagerPeter'}, CorporateClient{AccountManager='MAnagerkofi'}, CorporateClient{AccountManager='MAnagerturkson'}, PrivateClient{}, PrivateClient{}]
+  <testcase name="getbyID()" classname="turntabl.RegisterTest" time="0.04"/>
+  <system-out><![CDATA[Optional[CorporateClient{, ClientID=4415, ServiceLevel=Platinum, AccountManagerName=Accountmanager{clientName='Kwame'}, CorporateClientName='kofiC'}]
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

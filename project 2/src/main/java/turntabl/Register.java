@@ -2,15 +2,19 @@ package turntabl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Register {
-    public Register() {
 
-    }
+
 
     List<Client> ClientRegister = new ArrayList<>();
+
+    public Register(List<Client> clientRegister) {
+        ClientRegister = clientRegister;
+    }
 
 
     public void add (Client client){
@@ -18,7 +22,7 @@ public class Register {
     }
 
     public List<Client> allClients(){
-        return ClientRegister.stream().collect(Collectors.toList());
+        return new ArrayList<>(ClientRegister);
     }
 
 
@@ -29,29 +33,29 @@ public class Register {
         return ClientRegister
                 .stream()
                 .filter(b -> b.getServiceLevel().equals(ServiceLevel.Gold))
-                .collect(Collectors.toCollection(this::getGoldClients));
-   }
-   public void getbyID(String id){
-
-      Client james = ClientRegister.stream()
-               .filter(customer -> id.equals(customer.getClientID()))
-               .findAny()
-               .orElse(null);
+                .collect(Collectors.toList());
    }
 
-   public void getCount(){
-        Long goldcount = ClientRegister.stream()
-                .filter(b -> b.getServiceLevel().equals(ServiceLevel.Gold))
-                .count();
-       Long premcount = ClientRegister.stream()
-               .filter(b -> b.getServiceLevel().equals(ServiceLevel.Premium))
-               .count();
-       Long platcount = ClientRegister.stream()
-               .filter(b -> b.getServiceLevel().equals(ServiceLevel.Platinum))
-               .count();
+   public void getbyID(int id){
 
-
+//       Client james = ClientRegister.stream()
+//               .filter(client -> id == client.getClientID())
+//               .findAny()
+//               .orElse(null);
+       Optional<Client> matchingObject = ClientRegister.stream().
+               filter(p -> p.getClientID()== id).
+               findAny();
+       System.out.println(matchingObject);
 
    }
 
+
+    public void getCount() {
+        Map<ServiceLevel, Long> collect =
+                ClientRegister.stream().collect(Collectors.groupingBy(Client::getServiceLevel, Collectors.counting()));
+
+            System.out.println(collect);
+
+
+    }
 }
